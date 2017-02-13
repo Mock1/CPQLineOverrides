@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows users to use the Edit button/link for Opportunity Line or Quote Line records. Without this permission, changes can only be made through the CPQ Quote Line Editor.</description>
+    <label>Edit Opportunity/Quote Lines</label>
+</CustomPermission>
