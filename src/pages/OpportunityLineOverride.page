@@ -1,0 +1,32 @@
+<apex:page standardController="OpportunityLineItem" standardStylesheets="false" docType="html-5.0" applyBodyTag="False" >
+    <head>
+        <title>{! OpportunityLineItem.Name }</title>
+        <apex:slds /> 
+    </head>|
+    <body class="slds-scope">
+        <div role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal--prompt">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                    <h2 class="slds-text-heading--medium" id="prompt-heading-id">{!IF($CurrentPage.parameters.delId!=NULL,'YOUR LINE WAS NOT DELETED','This Record Cannot Be Edited Here')}</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <p>Editing or Deletion of lines should occur within the primary quote's line editor to ensure that all pricing calculations are updated properly.
+                    </p>
+                </div>
+                <div class="slds-modal__footer slds-theme--default">
+                    <apex:outputPanel rendered="{!OpportunityLineItem.SBQQ__QuoteLine__c!=null}">
+                        <button class="slds-button slds-button--brand" onclick="window.location='/apex/SBQQ__sb?scontrolCaching=1&id={!OpportunityLineItem.SBQQ__QuoteLine__r.SBQQ__Quote__c}'">Go to Quote Line Editor</button>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF($Permission.EditCPQLines && $CurrentPage.parameters.delId==null,TRUE,FALSE)}">
+                        <button class="slds-button slds-button--brand" onclick="window.location='{!IF($CurrentPage.parameters.delId==null,'/'+OpportunityLineItem.Id+'/e?retURL=/'+OpportunityLineItem.OpportunityId+'&nooverride=1','')}'">Continue</button>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF($Permission.DeleteCPQLines && $CurrentPage.parameters.delId!=null,TRUE,FALSE)}">
+                        <button class="slds-button slds-button--destructive" onclick="window.parent.location.href='{!URLFOR($Action.OpportunityLineItem.Delete, OpportunityLineItem.Id, [retURL=URLFOR($Action.Opportunity.View, OpportunityLineItem.OpportunityId)], true)}'">DELETE</button>
+                    </apex:outputPanel>
+                    <button class="slds-button slds-button--neutral" onclick="window.location='{!IF($CurrentPage.parameters.delId!=null,'/'+$CurrentPage.parameters.delId,IF($CurrentPage.parameters.retURL!=null,$CurrentPage.parameters.retURL,'/'+OpportunityLineItem.OpportunityId))}'">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </body>
+</apex:page>
