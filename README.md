@@ -43,7 +43,12 @@ This requires the Salesforce CPQ package, and Salesforce Professional Edition or
 
 ### Installing
 
-You can either add these items in the GUI, or deploy with an IDE.
+You can either add these items in the GUI, deploy with an IDE, or deploy directly to your org with the Deploy to Salesforce button here:
+
+<a href="https://githubsfdeploy.herokuapp.com">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
 
 To use the IDE, add these items to your project and package.xml, and push to your org.
 
