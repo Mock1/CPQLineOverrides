@@ -18,11 +18,11 @@ You can remove buttons in the Classic or Lightning UI (such as Add Product, Edit
 
 You could remove these related lists to accomplish your goal, but that takes away some valuable at-a-glance information about the Opportunity/Quote.
 
-What we have done here is create a couple of Visualforce pages that can be used to override the default actions for these objects. This way, anytime a user clicks a link or button that corresponds to the action that is being overriden, they will be presented with the new Visualforce page instead.
+What we have done here is create a couple of Visualforce pages that can be used to override the default actions for these objects. This way, anytime a user clicks a link or button that corresponds to the action that is being overridden, they will be presented with the new Visualforce page instead.
 
 We take this chance to provide them with some information about why we are stopping them from taking this action, and provide links to allow them to continue down the correct path, or to go back where they came from. A key here is to not end up with a dead-end for the User; we aren't just telling them no, we are guiding them to the right path.
 
-There are also scenarios where some users may need to be able to take these actions while most users cannot (typically a System Admin, or Sales Operations). To accomodate this, we have included two Custom Permissions (one for Edit and Delete respectively). These Custom Permissions can be assigned via Permission Set or directly on a Profile. Users with these permissions will still see the Visualforce page, but will be presented a third button to force their way through to the appropriate action. This way not functionality is lost for the users that do need this ability, while controlling the rest of the users.
+There are also scenarios where some users may need to be able to take these actions while most users cannot (typically a System Admin, or Sales Operations). To accommodate this, we have included two Custom Permissions (one for Edit and Delete respectively). These Custom Permissions can be assigned via Permission Set or directly on a Profile. Users with these permissions will still see the Visualforce page, but will be presented a third button to force their way through to the appropriate action. This way not functionality is lost for the users that do need this ability, while controlling the rest of the users.
 
 ## How Can This Be Improved?
 
